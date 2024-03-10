@@ -11,11 +11,11 @@ export class UserService {
   readonly url ="https://localhost:7004/api/";
   constructor(private http: HttpClient) { }
 
-  public getStudent(): Observable<Users[]>{
+  public getUser(): Observable<Users[]>{
     return this.http.get<any>(this.url+"User/GetAllUsers");
   }
 
-  public getStudentById(userId: number): Observable<any>{
+  public getUserById(userId: number): Observable<any>{
     let queryParams = new HttpParams();
     queryParams.append('Id',userId.toString());
     return this.http.get<any>(this.url+"User/GetUserById/" + userId);
@@ -25,11 +25,11 @@ export class UserService {
     return this.http.post<Users>(this.url+"User/CreateUser",user);
   }
  
-  public updateStudent(user: Users): Observable<any>{
+  public updateUser(user: Users): Observable<any>{
     return this.http.patch<any>(this.url+"User/UpdateUser",user);
   }
  
-  public deleteStudent(userId: number){
+  public deleteUser(userId: number){
     let queryParams = new HttpParams();
     queryParams.append('Id',userId.toString());
     return this.http.delete<any>(this.url+"User/DeleteUser",{params:queryParams})

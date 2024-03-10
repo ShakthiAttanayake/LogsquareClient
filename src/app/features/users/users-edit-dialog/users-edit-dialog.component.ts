@@ -27,7 +27,7 @@ export class UsersEditDialogComponent implements OnInit{
 
   ngOnInit(): void {
 
-    this.getUserDetails();
+    this.getUserDetailsById();
   }
 
 
@@ -49,13 +49,13 @@ export class UsersEditDialogComponent implements OnInit{
       this.userService.createUser(this.user).subscribe(x => {
         console.log(x)
         alert("User created successfully !");
-        this.getUserDetails();
+        this.getUserDetailsById();
       });
     }else{
-      this.userService.updateStudent(this.user).subscribe(x => {
+      this.userService.updateUser(this.user).subscribe(x => {
         console.log(x)
         alert("User updated successfully !");
-        this.getUserDetails();
+        this.getUserDetailsById();
       });
 
     }
@@ -63,8 +63,8 @@ export class UsersEditDialogComponent implements OnInit{
    
   }
 
-  private getUserDetails(){
-    this.userService.getStudentById(this.userId).subscribe(u => {
+  private getUserDetailsById(){
+    this.userService.getUserById(this.userId).subscribe(u => {
       this.options.setValue({      
         id : u.id,
         userName : u.userName,  
