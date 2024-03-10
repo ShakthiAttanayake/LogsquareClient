@@ -1,9 +1,10 @@
-import { Component, OnInit, input } from '@angular/core';
+import { Component, Inject, OnInit, input } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { FloatLabelType } from '@angular/material/form-field';
 import { Users } from '../../models/users.model';
 import { UserService } from '../../services/user.service';
 import { Input} from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-users-edit-dialog',
@@ -23,11 +24,26 @@ export class UsersEditDialogComponent implements OnInit{
   email = new FormControl('');
   password = new FormControl('');
 
-  constructor(private _formBuilder: FormBuilder, private userService:UserService) {}
+  constructor(
+    private _formBuilder: FormBuilder
+    ,private userService:UserService
+    ,public dialogref: MatDialogRef<UsersEditDialogComponent>
+    ,@Inject(MAT_DIALOG_DATA) public data:Users
+
+    ) {}
 
   ngOnInit(): void {
-
-    this.getUserDetailsById();
+    if(this.data.id){
+      this.isUpdate = true;
+    }
+    console.log(this.data);
+    this.options.patchValue({      
+      id : this.data.id,
+      userName : this.data.userName,  
+      email : this.data.email,
+      password : this.data.password
+    });
+    this.getUserDetailsById(this.data.id);
   }
 
 
@@ -46,25 +62,24 @@ export class UsersEditDialogComponent implements OnInit{
     this.user.password = this.options.controls['password']?.value??'';
 
     if(this.isUpdate){
-      this.userService.createUser(this.user).subscribe(x => {
-        console.log(x)
-        alert("User created successfully !");
-        this.getUserDetailsById();
-      });
-    }else{
       this.userService.updateUser(this.user).subscribe(x => {
         console.log(x)
         alert("User updated successfully !");
-        this.getUserDetailsById();
+        this.getUserDetailsById(this.user.id);
+        this.dialogref.close();
       });
-
+    }else{
+      this.userService.createUser(this.user).subscribe(x => {
+        console.log(x)
+        alert("User created successfully !");
+        this.getUserDetailsById(this.user.id);
+        this.dialogref.close();
+      });
     }
-    
-   
   }
 
-  private getUserDetailsById(){
-    this.userService.getUserById(this.userId).subscribe(u => {
+  private getUserDetailsById(userId: any){
+    this.userService.getUserById(userId).subscribe(u => {
       this.options.setValue({      
         id : u.id,
         userName : u.userName,  
