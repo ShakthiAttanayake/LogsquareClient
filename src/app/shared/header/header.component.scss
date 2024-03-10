@@ -1,0 +1,11 @@
+ul li {
+    list-style: none;
+}
+
+.mat-accent {
+    --mat-option-selected-state-label-text-color: #585657 !important;
+    --mat-option-label-text-color: rgba(0, 0, 0, 0.87);
+    --mat-option-hover-state-layer-color: rgba(0, 0, 0, 0.04);
+    --mat-option-focus-state-layer-color: rgba(0, 0, 0, 0.04);
+    --mat-option-selected-state-layer-color: rgba(0, 0, 0, 0.04)
+}
