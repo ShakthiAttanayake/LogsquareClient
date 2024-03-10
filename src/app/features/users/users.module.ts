@@ -28,8 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     MatDialogModule,
     MatButtonModule,
-    ReactiveFormsModule//,
-    //HttpClientModule
+    ReactiveFormsModule
   ]
 })
 export class UsersModule { }

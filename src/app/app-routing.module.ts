@@ -5,7 +5,11 @@ const routes: Routes = [
   {
     path: 'user-details',
     loadChildren: () => import('./features/users/users.module').then(m => m.UsersModule)
-  }
+  },
+  {
+    path: '',
+    loadChildren: () => import('../app/core/auth/login/login.module').then(m => m.LoginModule)
+  },
 ];
 
 @NgModule({
