@@ -13,6 +13,7 @@ import { ConfirmDialog } from '../../../shared/models/confirm-dialog';
   styleUrl: './users-grid.component.scss'
 })
 export class UsersGridComponent implements OnInit{
+ 
   displayedColumns: string[] = ['id', 'userName', 'email','action'];
   dataSource = new MatTableDataSource<Users>([]);
   public userDetails: Users[] = [];
@@ -65,6 +66,10 @@ export class UsersGridComponent implements OnInit{
       }
      });
   }
+
+  onCreate() {
+    this.openDialog('500ms','500ms',null);
+    }
 
   onDelete(id: any) {
     this.confirmDialog(id);

@@ -33,17 +33,21 @@ export class UsersEditDialogComponent implements OnInit{
     ) {}
 
   ngOnInit(): void {
-    if(this.data.id){
-      this.isUpdate = true;
+
+    if(this.data)
+    {
+      if(this.data.id){
+        this.isUpdate = true;
+        //this.getUserDetailsById(this.data.id);
+        this.options.patchValue({      
+          id : this.data.id,
+          userName : this.data.userName,  
+          email : this.data.email,
+          password : this.data.password
+        });
+      }
+      console.log(this.data);
     }
-    console.log(this.data);
-    this.options.patchValue({      
-      id : this.data.id,
-      userName : this.data.userName,  
-      email : this.data.email,
-      password : this.data.password
-    });
-    this.getUserDetailsById(this.data.id);
   }
 
 
@@ -65,28 +69,26 @@ export class UsersEditDialogComponent implements OnInit{
       this.userService.updateUser(this.user).subscribe(x => {
         console.log(x)
         alert("User updated successfully !");
-        this.getUserDetailsById(this.user.id);
         this.dialogref.close();
       });
     }else{
       this.userService.createUser(this.user).subscribe(x => {
         console.log(x)
         alert("User created successfully !");
-        this.getUserDetailsById(this.user.id);
         this.dialogref.close();
       });
     }
   }
 
-  private getUserDetailsById(userId: any){
-    this.userService.getUserById(userId).subscribe(u => {
-      this.options.setValue({      
-        id : u.id,
-        userName : u.userName,  
-        email : u.email,
-        password : u.password
-      });
-    });
-  }
+  // private getUserDetailsById(userId: any){
+  //   this.userService.getUserById(userId).subscribe(u => {
+  //     this.options.setValue({      
+  //       id : u.id,
+  //       userName : u.userName,  
+  //       email : u.email,
+  //       password : u.password
+  //     });
+  //   });
+  // }
 
 }

@@ -32,7 +32,7 @@
       </ng-container>
 
       <ng-container matColumnDef="action">
-        <th class="text-right" mat-header-cell *matHeaderCellDef><button class="add-new-btn">+</button> </th>
+        <th class="text-right" mat-header-cell *matHeaderCellDef><button (click)="onCreate()" class="add-new-btn">+</button> </th>
         <td mat-cell *matCellDef="let element">
           <button (click)="onEdit(element)" mat-raised-button color="primary">Edit</button> |
           <button (click)="onDelete(element.id)" mat-raised-button color="accent">Delete</button>
