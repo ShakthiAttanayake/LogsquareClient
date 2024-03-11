@@ -8,12 +8,23 @@ import { Auth } from '../models/auth.model';
   providedIn: 'root'
 })
 export class LoginService {
-
-
+  
   readonly url ="https://localhost:7004/api/";
   constructor(private http: HttpClient) { }
  
   public login(auth: Auth): Observable<any>{
     return this.http.post<Auth>(this.url+"Authentication/Login",auth);
   }
+
+  public isUserLoggedIn() {
+    let token = localStorage.getItem('Token');
+    if(token == null){
+      return false;
+    }
+    else
+    {
+      return true;
+    }
+
+}
 }

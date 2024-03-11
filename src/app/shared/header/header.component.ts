@@ -11,9 +11,15 @@ export class HeaderComponent {
 constructor(private router:Router) {
   
 }
+
 onDasboard() {
   this.router.navigate(['/dashboard']);
 }
+
+onLogout() {
+  localStorage.removeItem('Token');
+  this.router.navigate(['']);
+  }
   
   
 }
