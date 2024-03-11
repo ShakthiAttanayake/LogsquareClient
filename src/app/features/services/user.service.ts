@@ -32,7 +32,7 @@ export class UserService {
   public deleteUser(userId: number){
     let queryParams = new HttpParams();
     queryParams.append('Id',userId.toString());
-    return this.http.delete<any>(this.url+"User/DeleteUser",{params:queryParams})
+    return this.http.delete<any>(this.url+"User/DeleteUser/" + userId)
   }
 
 }

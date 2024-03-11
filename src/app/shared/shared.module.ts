@@ -10,6 +10,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 
 
@@ -17,6 +18,7 @@ import {MatIconModule} from '@angular/material/icon';
   declarations: [
     HeaderComponent,
     FooterComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     CommonModule,
