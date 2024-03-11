@@ -15,9 +15,10 @@ export class HeaderComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.showIconsOnHeader = this.loginService.getBooleanValue();
+    this.loginService.getObservable().subscribe((value: boolean) => {
+      this.showIconsOnHeader = value;
+    });
   }
-
 
   onDasboard() {
     this.router.navigate(['/dashboard']);
@@ -25,7 +26,7 @@ export class HeaderComponent implements OnInit{
 
   onLogout() {
     localStorage.removeItem('Token');
-    this.loginService.setBooleanValue(true);
+    this.loginService.setObservableValue(false);
     this.router.navigate(['']);
     }
   

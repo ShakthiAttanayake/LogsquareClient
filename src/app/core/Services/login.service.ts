@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Observable, map} from "rxjs";
+import {Observable, Observer, map} from "rxjs";
 import { Auth } from '../models/auth.model';
 
 
@@ -12,21 +12,14 @@ export class LoginService {
   readonly url ="https://localhost:7004/api/";
   private showHeaderIcons: boolean = false;
 
-  booleanObservable$: Observable<boolean> = new Observable<boolean>((observer) => {
-    observer.next(this.showHeaderIcons);
-  }).pipe(
-    map((value) => this.showHeaderIcons)
-  );
+  private _showHeaderIconsObservable$: Observable<boolean>;
+  private _showHeaderIcons!: Observer<boolean>;
 
-  setBooleanValue(newValue: boolean): void {
-    this.showHeaderIcons = newValue;
+  constructor(private http: HttpClient) { 
+    this._showHeaderIconsObservable$ = new Observable<boolean>((observer: Observer<boolean>) => {
+      this._showHeaderIcons = observer;
+    });
   }
-
-  getBooleanValue(): boolean {
-    return this.showHeaderIcons;
-  }
-
-  constructor(private http: HttpClient) { }
  
   public login(auth: Auth): Observable<any>{
     return this.http.post<Auth>(this.url+"Authentication/Login",auth);
@@ -41,6 +34,15 @@ export class LoginService {
     {
       return true;
     }
+  }
 
-}
+  setObservableValue(value: boolean): void {
+    if (this._showHeaderIcons) {
+      this._showHeaderIcons.next(value);
+    }
+  }
+ 
+  getObservable(): Observable<boolean> {
+    return this._showHeaderIconsObservable$;
+  }
 }

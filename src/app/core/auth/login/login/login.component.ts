@@ -32,7 +32,7 @@ export class LoginComponent {
       console.log(x)
       alert("User logged in successfully !");
       localStorage.setItem('Token',x.token);
-      this.loginService.setBooleanValue(true);
+      this.loginService.setObservableValue(true);
       this.router.navigate(['/user-details']);
     });
     
