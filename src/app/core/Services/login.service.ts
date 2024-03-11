@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
+import {Observable, map} from "rxjs";
 import { Auth } from '../models/auth.model';
 
 
@@ -10,6 +10,22 @@ import { Auth } from '../models/auth.model';
 export class LoginService {
   
   readonly url ="https://localhost:7004/api/";
+  private showHeaderIcons: boolean = false;
+
+  booleanObservable$: Observable<boolean> = new Observable<boolean>((observer) => {
+    observer.next(this.showHeaderIcons);
+  }).pipe(
+    map((value) => this.showHeaderIcons)
+  );
+
+  setBooleanValue(newValue: boolean): void {
+    this.showHeaderIcons = newValue;
+  }
+
+  getBooleanValue(): boolean {
+    return this.showHeaderIcons;
+  }
+
   constructor(private http: HttpClient) { }
  
   public login(auth: Auth): Observable<any>{

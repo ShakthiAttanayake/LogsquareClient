@@ -3,7 +3,7 @@
             <div>
                 <img style="width: 200px;" src="assets/Images/logsqr_transparent.png" alt="">
             </div>
-        <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+        <div *ngIf="showIconsOnHeader" fxFlex fxLayout="row" fxLayoutAlign="flex-end">
             <ul fxLayout="row" class="header-icon-row" fxLayoutGap="10px">
                 <li>
                     <button (click)="onDasboard()" class="header-buttons dashboard-button">
