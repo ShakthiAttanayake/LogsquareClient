@@ -13,7 +13,7 @@ import { ConfirmDialog } from '../../../shared/models/confirm-dialog';
   styleUrl: './users-grid.component.scss'
 })
 export class UsersGridComponent implements OnInit{
- 
+
   displayedColumns: string[] = ['id', 'userName', 'email','action'];
   dataSource = new MatTableDataSource<Users>([]);
   public userDetails: Users[] = [];
@@ -25,8 +25,6 @@ export class UsersGridComponent implements OnInit{
 
     this.getUserDetails();
   }
-
-  
 
   onEdit(user :any) {
     this.openDialog('1000ms','600ms',user)
@@ -93,5 +91,9 @@ export class UsersGridComponent implements OnInit{
       this.dataSource = new MatTableDataSource<any>(details);
     })
   }
+
+  onExcelExport() {
+    this.userService.downloadExcelFile();
+    }
 }
 
