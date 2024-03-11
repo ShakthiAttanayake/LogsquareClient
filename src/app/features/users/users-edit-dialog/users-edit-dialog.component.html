@@ -1,8 +1,9 @@
 <div class="example-container">
+  <div><h2 class="dialog-title">User Details</h2></div>
     <form [formGroup]="options">
       <div class="example-form-fields">
         <mat-form-field>
-            <mat-label>User Name</mat-label>
+            <mat-label>User Nameaaa</mat-label>
             <input matInput placeholder="Enter User Name" formControlName="userName">
           </mat-form-field>
       </div>
@@ -18,7 +19,7 @@
             <input matInput placeholder="Enter Password" formControlName="password">
           </mat-form-field>
       </div>
-      <div class="example-button-row">
+      <div class="example-button-row text-right">
         <button mat-raised-button color="primary" (click)="OnSubmit()">Save</button>
         <button mat-raised-button color="accent" mat-dialog-close>Cancel</button>
       </div>

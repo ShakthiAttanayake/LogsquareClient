@@ -1,0 +1,42 @@
+.login-area {
+    width: 40%;
+    margin: 200px auto;
+    max-width: 400px;
+    height: 350px;
+}
+
+.mat-mdc-form-field
+{
+    width:100%;
+    flex:0 0 100%;
+}
+
+.example-button-row
+{
+    text-align:center;
+}
+
+.mat-mdc-raised-button.mat-primary {
+    background-color: #fff;
+    border: 2px solid #008aa0 !important;
+    box-shadow: none;
+    color: #525252;
+    border-radius: 30px;
+    font-weight: 600;
+    height: 35px;
+    padding-inline: 20px !important;
+    width:93px;
+    margin-right: 10px;;
+}
+
+.mat-mdc-raised-button.mat-accent {
+    width:93px;
+    background-color: #fff;
+    border: 2px solid #d02a00 !important;
+    box-shadow: none;
+    color: #525252;
+    border-radius: 30px;
+    font-weight: 600;
+    height: 35px;
+    padding-inline: 20px !important;
+}

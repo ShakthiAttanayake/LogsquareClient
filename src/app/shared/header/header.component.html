@@ -1,34 +1,21 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-        <!-- <button mat-icon-button (click)="toggleSideBar()">
-            <mat-icon>menu</mat-icon>
-        </button> -->
             <div>
                 <img style="width: 200px;" src="assets/Images/logsqr_transparent.png" alt="">
             </div>
         <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
-            <ul fxLayout="row" fxLayoutGap="20px">
+            <ul fxLayout="row" class="header-icon-row" fxLayoutGap="10px">
                 <li>
-                    <button mat-icon-button>
-                        <mat-icon>settings</mat-icon>
+                    <button class="header-buttons dashboard-button">
+                       
                     </button>
                 </li>
                 <li>
-                    <button mat-icon-button>
-                        <mat-icon>help_outline</mat-icon>
+                    <button class="header-buttons logout-button">
+                        
                     </button>
                 </li>
-                <li>
-                    <button mat-icon-button [matMenuTriggerFor]="menu">
-                        <mat-icon>person_outline</mat-icon>
-                    </button>
-                    <mat-menu #menu="matMenu">
-                        <button mat-menu-item>
-                            <mat-icon>exit_to_app</mat-icon>
-                            Sign out
-                        </button>
-                    </mat-menu> 
-                </li>
+               
             </ul>
 
         </div>

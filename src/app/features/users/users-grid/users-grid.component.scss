@@ -1,0 +1,79 @@
+.data-grid {
+padding-block:50px;
+padding-inline: 25px;
+padding-top: 0px;
+}
+
+.mat-mdc-table 
+{
+    border:1px solid #c9d1da;
+    font-size: 14px !important;
+}
+
+.mat-mdc-header-cell
+{
+    background-color:#eee !important;
+    font-weight: 600;
+    font-size: 16px !important;
+}
+
+.mat-mdc-paginator
+{
+    font-size: 14px !important;
+}
+
+
+.mat-mdc-raised-button.mat-primary {
+    background-color: #fff;
+    border: 2px solid #008aa0 !important;
+    box-shadow: none;
+    color: #525252;
+    border-radius: 30px;
+    font-weight: 600;
+    height: 35px;
+    padding-inline: 20px !important;
+    width:93px;
+}
+
+.mat-mdc-raised-button.mat-accent {
+    width:93px;
+    background-color: #fff;
+    border: 2px solid #d02a00 !important;
+    box-shadow: none;
+    color: #525252;
+    border-radius: 30px;
+    font-weight: 600;
+    height: 35px;
+    padding-inline: 20px !important;
+}
+
+.add-new-btn {
+    border-style: none;
+    font-size: 48px;
+    cursor: pointer;
+}
+
+.text-right
+{
+    text-align:right;
+}
+
+.mat-mdc-paginator .mat-mdc-select-value {  
+    font-size: 15px !important;
+}
+
+.grid-toolbar
+{
+    margin:25px 40px 5px 20px;
+}
+
+.excel-button {
+    background: transparent url(/assets/Images/excel.png) center center no-repeat;    
+}
+
+.header-buttons
+{
+    border-style: none;
+    width:40px;
+    height:40px;
+}
