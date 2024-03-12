@@ -1,0 +1,68 @@
+.mdc-dialog__surface {
+   
+    padding: 20px !important;
+}
+
+.mat-mdc-raised-button.mat-primary {
+    background-color: #fff;
+    border: 2px solid #008aa0 !important;
+    box-shadow: none;
+    color: #525252;
+    border-radius: 30px;
+    font-weight: 600;
+    height: 35px;
+    padding-inline: 20px !important;
+    width:93px;
+    margin-right: 10px;;
+}
+
+.mat-mdc-button-ripple {
+    width:93px;
+    background-color: #fff;
+    border: 2px solid #d02a00 !important;
+    box-shadow: none;
+    color: #525252;
+    border-radius: 30px;
+    font-weight: 600;
+    height: 35px;
+    padding-inline: 20px !important;
+    margin-right: 10px;
+}
+
+.example-container {
+    padding: 20px;
+    width:350px;
+}
+
+.text-right
+{
+    text-align:right;
+}
+
+.login-area {
+    width: 40%;
+    margin: 200px auto;
+    max-width: 400px;
+    height: 350px;
+}
+
+.mat-mdc-form-field
+{
+    width:100%;
+    flex:0 0 100%;
+}
+
+
+.example-form-fields {
+   
+    margin: auto;
+}
+
+h2.dialog-title {
+
+    
+    font-family: Arial;
+    font-weight: 500;
+    margin-top: 0px;
+}
+

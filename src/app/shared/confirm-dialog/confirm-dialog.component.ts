@@ -5,7 +5,7 @@ import { ConfirmDialog } from '../models/confirm-dialog';
 @Component({
   selector: 'app-confirm-dialog',
   templateUrl: './confirm-dialog.component.html',
-  // styleUrl: './confirm-dialog.component.scss'
+  styleUrl: './confirm-dialog.component.scss'
 })
 export class ConfirmDialogComponent {
   title: string='';
